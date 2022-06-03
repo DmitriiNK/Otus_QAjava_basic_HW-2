@@ -13,9 +13,9 @@ public class Main {
     static String whichColor = "Укажите Цвет";
     static String whichWight = "Укажите Вес";
 
-   public static void main(String[] args) throws IOException {
-       List<Animal> animals = new ArrayList<>();
-       Scanner sc = new Scanner(System.in);
+    public static void main(String[] args) throws IOException {
+        List<Animal> animals = new ArrayList<>();
+        Scanner sc = new Scanner(System.in);
         boolean isExit = true;
         while (isExit){
             questionPresentation(menuOptions);
@@ -42,17 +42,17 @@ public class Main {
         questionPresentation(whichName);
         animal.setName(scanner.next());
         questionPresentation(whichAge);
-        animal.setAge(scanner.nextInt());
+        setAgeValidation(animal,scanner);
         questionPresentation(whichColor);
         animal.setColor(scanner.next());
         questionPresentation(whichWight);
-        animal.setWeight(scanner.nextInt());
+        setWightValidation(animal,scanner);
     }
     public static void createAnimal(Scanner sc,List<Animal> animals) {
         boolean isExit = true;
-       while (isExit) {
-       questionPresentation(whichAnimal);
-        String animal = sc.next().toLowerCase().trim();
+        while (isExit) {
+            questionPresentation(whichAnimal);
+            String animal = sc.next().toLowerCase().trim();
             switch (animal) {
                 case "cat":
                     Animal cat = new Cat();
@@ -80,5 +80,19 @@ public class Main {
                     break;
             }
         }
+    }
+    public static void setAgeValidation(Animal animal,Scanner scanner) {
+        while (!scanner.hasNextInt()) {
+            System.out.println("Вы ввели не число.Пожалуйста введите число");
+            scanner.next();
+        }
+        animal.setAge(scanner.nextInt());
+    }
+    public static void setWightValidation(Animal animal,Scanner scanner) {
+        while (!scanner.hasNextInt()) {
+            System.out.println("Вы ввели не число.Пожалуйста введите число");
+            scanner.next();
+        }
+        animal.setWeight(scanner.nextInt());
     }
 }
