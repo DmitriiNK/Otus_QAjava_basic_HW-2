@@ -73,6 +73,7 @@ public class Main {
                     fillingAnimal(duck, sc);
                     animals.add(duck);
                     duck.Say();
+                    isExit = false;
                     break;
                 default:
                     System.out.println("Введен некорректный класс животного. Повторите попытку");
