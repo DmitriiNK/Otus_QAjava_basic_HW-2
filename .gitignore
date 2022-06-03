@@ -41,3 +41,5 @@ target
 #Vagrant
 .vagrant/
 
+*.DS_Store
+._*
