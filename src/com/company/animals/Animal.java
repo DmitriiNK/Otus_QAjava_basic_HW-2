@@ -1,8 +1,14 @@
 package com.company.animals;
 
+import com.company.birds.Duck;
+import com.company.configuration.data.Questions;
+import com.company.pets.Cat;
+import com.company.pets.Dog;
+
 import java.text.ChoiceFormat;
 import java.lang.StringBuilder;
-
+import java.util.List;
+import java.util.Scanner;
 
 
 public abstract class Animal {
@@ -88,4 +94,62 @@ public abstract class Animal {
     public String toString(){
         return ("Привет! меня зовут "+ getName()+","+" мне "+getAge()+" "+agePostFix()+","+ " я вешу - "+getWeight()+" кг, мой цвет - "+getColor());
     }
+    public static void createAnimal(Scanner sc, List<Animal> animals) {
+        boolean isExit = true;
+        while (isExit) {
+            Questions.questionPresentation(Questions.WHICHANIMAL.getQuest());
+            String animal = sc.next().toLowerCase().trim();
+            switch (animal) {
+                case "cat":
+                    Animal cat = new Cat();
+                    fillingAnimal(cat, sc);
+                    animals.add(cat);
+                    cat.say();
+                    isExit = false;
+                    break;
+                case "dog":
+                    Animal dog = new Dog();
+                    fillingAnimal(dog, sc);
+                    animals.add(dog);
+                    dog.say();
+                    isExit = false;
+                    break;
+                case "duck":
+                    Animal duck = new Duck();
+                    fillingAnimal(duck, sc);
+                    animals.add(duck);
+                    duck.say();
+                    isExit = false;
+                    break;
+                default:
+                    System.out.println("Введен некорректный класс животного. Повторите попытку");
+                    break;
+            }
+        }
+    }
+    public static void fillingAnimal(Animal animal, Scanner scanner){
+        Questions.questionPresentation(Questions.WHICHNAME.getQuest());
+        animal.setName(scanner.next());
+        Questions.questionPresentation(Questions.WHICHAGE.getQuest());
+        setAgeValidation(animal,scanner);
+        Questions.questionPresentation(Questions.WHICHCOLOR.getQuest());
+        animal.setColor(scanner.next());
+        Questions.questionPresentation(Questions.WHICHWIGHT.getQuest());
+        setWightValidation(animal,scanner);
+    }
+    public static void setAgeValidation(Animal animal,Scanner scanner) {
+        while (!scanner.hasNextInt()) {
+            System.out.println("Вы ввели не число.Пожалуйста введите число");
+            scanner.next();
+        }
+        animal.setAge(scanner.nextInt());
+    }
+    public static void setWightValidation(Animal animal,Scanner scanner) {
+        while (!scanner.hasNextInt()) {
+            System.out.println("Вы ввели не число.Пожалуйста введите число");
+            scanner.next();
+        }
+        animal.setWeight(scanner.nextInt());
+    }
+
 }
