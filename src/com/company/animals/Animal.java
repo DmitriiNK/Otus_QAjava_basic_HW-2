@@ -1,4 +1,4 @@
-package com.company;
+package com.company.animals;
 
 import java.text.ChoiceFormat;
 import java.lang.StringBuilder;

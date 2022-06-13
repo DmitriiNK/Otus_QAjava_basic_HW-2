@@ -1,4 +1,4 @@
-package com.company;
+package com.company.configuration.data;
 
 public enum MenuOptions {
     ADD("ADD"),

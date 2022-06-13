@@ -1,4 +1,10 @@
-package com.company;
+package com.company.configuration;
+
+import com.company.configuration.data.MenuOptions;
+import com.company.animals.Animal;
+import com.company.birds.Duck;
+import com.company.pets.Cat;
+import com.company.pets.Dog;
 
 import java.io.IOException;
 import java.util.ArrayList;
