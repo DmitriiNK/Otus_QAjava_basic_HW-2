@@ -58,21 +58,21 @@ public class Main {
                     Animal cat = new Cat();
                     fillingAnimal(cat, sc);
                     animals.add(cat);
-                    cat.Say();
+                    cat.say();
                     isExit = false;
                     break;
                 case "dog":
                     Animal dog = new Dog();
                     fillingAnimal(dog, sc);
                     animals.add(dog);
-                    dog.Say();
+                    dog.say();
                     isExit = false;
                     break;
                 case "duck":
                     Animal duck = new Duck();
                     fillingAnimal(duck, sc);
                     animals.add(duck);
-                    duck.Say();
+                    duck.say();
                     isExit = false;
                     break;
                 default:

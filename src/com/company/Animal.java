@@ -53,20 +53,20 @@ public abstract class Animal {
         this.color = color;
     }
 
-    public void Say(){
+    public void say(){
         System.out.println("Я говорю");
     }
-    public void Go(){
+    public void go(){
         System.out.println("Я иду");
     }
-    public void Drink(){
+    public void drink(){
         System.out.println("Я пью");
     }
-    public void Eat(){
+    public void eat(){
         System.out.println("Я ем");
     }
 
-  public String AgePostFix(){
+  public String agePostFix(){
         int ageLastNumber = age % 10;
         boolean exclusion = (age % 100 >= 11) && (age % 100 <= 14);
         String old = "";
@@ -86,6 +86,6 @@ public abstract class Animal {
 
     @Override
     public String toString(){
-        return ("Привет! меня зовут "+ getName()+","+" мне "+getAge()+" "+AgePostFix()+","+ " я вешу - "+getWeight()+" кг, мой цвет - "+getColor());
+        return ("Привет! меня зовут "+ getName()+","+" мне "+getAge()+" "+agePostFix()+","+ " я вешу - "+getWeight()+" кг, мой цвет - "+getColor());
     }
 }

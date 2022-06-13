@@ -1,7 +1,7 @@
 package com.company;
 
 public class Dog extends Animal {
-    public void Say(){
+    public void say(){
         System.out.println("Гав");
     }
 }
