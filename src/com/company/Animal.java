@@ -5,7 +5,7 @@ import java.lang.StringBuilder;
 
 
 
-public class Animal {
+public abstract class Animal {
     private String name;
     private int age;
     private int weight;
