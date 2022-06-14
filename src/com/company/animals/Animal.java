@@ -151,5 +151,4 @@ public abstract class Animal {
         }
         animal.setWeight(scanner.nextInt());
     }
-
 }
