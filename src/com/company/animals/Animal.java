@@ -5,8 +5,6 @@ import com.company.configuration.data.Questions;
 import com.company.pets.Cat;
 import com.company.pets.Dog;
 
-import java.text.ChoiceFormat;
-import java.lang.StringBuilder;
 import java.util.List;
 import java.util.Scanner;
 
