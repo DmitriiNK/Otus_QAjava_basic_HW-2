@@ -4,7 +4,7 @@ import com.company.birds.Duck;
 import com.company.configuration.data.Questions;
 import com.company.pets.Cat;
 import com.company.pets.Dog;
-
+import java.io.IOException;
 import java.util.List;
 import java.util.Scanner;
 
@@ -136,17 +136,47 @@ public abstract class Animal {
         setWightValidation(animal,scanner);
     }
     public static void setAgeValidation(Animal animal,Scanner scanner) {
-        while (!scanner.hasNextInt()) {
-            System.out.println("Вы ввели не число.Пожалуйста введите число");
-            scanner.next();
+       while (true) {
+            try {
+                String s = scanner.next();
+                int number = Integer.parseInt(s);
+                try {
+                    if (number > 0 && number <= 100){
+                        animal.setAge(number);
+                        break;
+                    }
+                    else {
+                        throw new IOException();
+                    }
+                } catch (IOException e) {
+                    System.out.println("Вы ввели возраст более 100 лет. Пожалуйста введите возраст менее 100 лет");
+                }
+            }
+            catch (NumberFormatException ex) {
+                    System.out.println("Вы ввели не число. Пожалуйста введите число");
+                }
+          }
         }
-        animal.setAge(scanner.nextInt());
-    }
     public static void setWightValidation(Animal animal,Scanner scanner) {
-        while (!scanner.hasNextInt()) {
-            System.out.println("Вы ввели не число.Пожалуйста введите число");
-            scanner.next();
+        while (true) {
+            try {
+                String s = scanner.next();
+                int number = Integer.parseInt(s);
+                try {
+                    if (number > 0 && number <= 1000){
+                        animal.setWeight(number);
+                        break;
+                    }
+                    else {
+                        throw new IOException();
+                    }
+                } catch (IOException e) {
+                    System.out.println("Вы ввели отрицательный вес. Пожалуйста введите положительное число");
+                }
+            }
+            catch (NumberFormatException ex) {
+                System.out.println("Вы ввели не число. Пожалуйста введите число");
+            }
         }
-        animal.setWeight(scanner.nextInt());
     }
 }
