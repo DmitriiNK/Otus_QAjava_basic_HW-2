@@ -1,6 +1,5 @@
-package com.company.birds;
+package com.company.animals.birds;
 
-import com.company.pets.Flying;
 import com.company.animals.Animal;
 
 public class Duck extends Animal implements Flying {

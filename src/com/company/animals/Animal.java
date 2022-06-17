@@ -1,9 +1,9 @@
 package com.company.animals;
 
-import com.company.birds.Duck;
+import com.company.animals.birds.Duck;
 import com.company.configuration.data.Questions;
-import com.company.pets.Cat;
-import com.company.pets.Dog;
+import com.company.animals.pets.Cat;
+import com.company.animals.pets.Dog;
 import java.io.IOException;
 import java.util.List;
 import java.util.Scanner;
