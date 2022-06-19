@@ -93,32 +93,22 @@ public abstract class Animal {
         return ("Привет! меня зовут "+ getName()+","+" мне "+getAge()+" "+agePostFix()+","+ " я вешу - "+getWeight()+" кг, мой цвет - "+getColor());
     }
     public static void createAnimal(Scanner sc, List<Animal> animals) {
-        boolean isExit = true;
-        while (isExit) {
+        while (true) {
             Questions.questionPresentation(Questions.WHICHANIMAL.getQuest());
             String animal = sc.next().toLowerCase().trim();
             switch (animal) {
                 case "cat":
                     Animal cat = new Cat();
-                    fillingAnimal(cat, sc);
-                    animals.add(cat);
-                    cat.say();
-                    isExit = false;
-                    break;
+                    AnimalInitialization(cat,animals,sc);
+                    return;
                 case "dog":
                     Animal dog = new Dog();
-                    fillingAnimal(dog, sc);
-                    animals.add(dog);
-                    dog.say();
-                    isExit = false;
-                    break;
+                    AnimalInitialization(dog,animals,sc);
+                    return;
                 case "duck":
                     Animal duck = new Duck();
-                    fillingAnimal(duck, sc);
-                    animals.add(duck);
-                    duck.say();
-                    isExit = false;
-                    break;
+                    AnimalInitialization(duck,animals,sc);
+                    return;
                 default:
                     System.out.println("Введен некорректный класс животного. Повторите попытку");
                     break;
@@ -178,5 +168,10 @@ public abstract class Animal {
                 System.out.println("Вы ввели не число. Пожалуйста введите число");
             }
         }
+    }
+    public static void AnimalInitialization(Animal animal,List<Animal> animals, Scanner sc){
+        fillingAnimal(animal, sc);
+        animals.add(animal);
+        animal.say();
     }
 }
